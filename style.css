@@ -79,6 +79,10 @@ header p {
   font-size: .5em;
 }
 
+header .caveat {
+  font-size: .35em;
+}
+
 .container {
   max-width: 100%;
   overflow: hidden;
