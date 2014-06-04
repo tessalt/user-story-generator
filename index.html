@@ -4,6 +4,7 @@
   <title>User Story Generator</title>
   <link rel="stylesheet" href="style.css">
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
 
@@ -12,12 +13,15 @@
     <div id="input" class="inner us-generator">
 
     <form class="us-form">
-    <h1>User Story Generator</h1>
+      <header>
+        <h1>User Story Generator</h1>
+        <p>by <a href="http://twitter.com/tessthornton">@tessthornton</a></p>
+      </header>
       <p>
-        <input type="text" placeholder="A noun" id="noun">
+        <input type="text" placeholder="a noun" id="noun" autocapitalize="off">
       </p>
       <p>
-        <input type="text" id="action" placeholder="An action">
+        <input type="text" id="action" placeholder="an action" autocapitalize="off">
       </p>
       <button id="submit">Use Me</button>
     </form>
