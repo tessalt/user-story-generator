@@ -26,18 +26,25 @@
 
   function resetPage(e) {
     if (this.classList.contains('slide-up')) {
-      console.log('RESETTED');
       ui.outputContainer.classList.remove('slide-up');
       ui.outputContainer.classList.remove('fade-in');
+      ui.nounInput.focus();
+      ui.actionInput.value = '';
     }
+  }
+
+  function clearFocus() {
+    this.value = '';
   }
 
   ui.usButton.addEventListener('click', generateUserStory, false);
 
   ui.moreButton.addEventListener('click', resetResult, false);
 
-  var slide = document.querySelector('.slide-up');
+  ui.outputContainer.addEventListener('transitionend', resetPage, false);
 
-  ui.outputContainer.addEventListener("transitionend", resetPage, false);
+  ui.nounInput.addEventListener('focus', clearFocus, false);
+
+  ui.actionInput.addEventListener('focus', clearFocus, false);
 
 })();
