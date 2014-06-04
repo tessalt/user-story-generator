@@ -201,3 +201,21 @@ h1 {
 .fade-in {
   background: #9b59b6;
 }
+
+@media (max-width: 960px) {
+  .us-generator.inner,
+  .fade-in .inner {
+    width: 100%;
+    -webkit-transform: translate(0,0);
+    top: 0;
+    left: 0;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  .us-form {
+    font-size: 2em;
+  }
+  .us-output {
+    font-size: 1.5em;
+  }
+}
