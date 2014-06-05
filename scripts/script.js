@@ -37,6 +37,18 @@
     this.value = '';
   }
 
+  function launchTrello(e) {
+    e.preventDefault();
+    Trello.authorize({
+      type: 'popup',
+      success: function() {
+        Trello.get("members/me/boards", { fields: "name" }, function(boards){
+          console.log(boards);
+        });
+      }
+    });
+  }
+
   ui.usButton.addEventListener('click', generateUserStory, false);
 
   ui.moreButton.addEventListener('click', resetResult, false);
@@ -46,5 +58,9 @@
   ui.nounInput.addEventListener('focus', clearFocus, false);
 
   ui.actionInput.addEventListener('focus', clearFocus, false);
+
+  var trello = document.getElementById('trello');
+
+  trello.addEventListener('click', launchTrello, false);
 
 })();
