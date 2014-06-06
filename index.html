@@ -15,8 +15,6 @@
 
 <div class="container">
 
-  <button id="trello">add to trello</button>
-
     <div id="input" class="inner us-generator">
 
     <form class="us-form">
@@ -37,9 +35,26 @@
   </div>
 
   <div id="output" class="us-output">
+
     <div class="inner">
       <h2 id="userstory"></h2>
       <button id="more">Expand scope!</button>
+      <button id="trello-launch">Add to Trello</button>
+    </div>
+  </div>
+
+  <div id="trello" class="us-trello">
+    <div class="inner">
+      <h2>Select A board</h2>
+      <a id="close-trello" href="#">Close</a>
+      <a id="back" href="#">Back</a>
+      <ul id="trello-boards" class="template">
+
+      </ul>
+      <ul id="trello-lists"></ul>
+      <div id="card-success">
+        <h2>Card created successfully</h2>
+      </div>
     </div>
   </div>
 
