@@ -34,7 +34,8 @@ h1 {
 }
 
 input,
-button {
+button,
+.button {
   font-family: inherit;
   font-size: inherit;
   font-weight: inherit;
@@ -49,11 +50,13 @@ input {
   -webkit-transition: all .2s;
 }
 
-button {
+button,
+.button {
   border: 0;
   padding: 10px 30px;
   cursor: pointer;
   font-size: .8em;
+  text-decoration: none;
 }
 
 input:focus,
@@ -125,7 +128,8 @@ header .caveat {
   font-weight: 300;
 }
 
-.us-output button {
+.us-output button,
+.us-output .button {
   border: 3px solid;
 }
 
@@ -214,7 +218,8 @@ h1 {
   background: #2980b9;
 }
 
-.us-output button {
+.us-output button,
+.us-output .button {
   background: transparent;
   border-color: white;
   color: white;
@@ -313,9 +318,11 @@ h1 {
   padding: 40px;
   display: none;
   background: white;
+  margin-top: 20px;
 }
 
-#card-success h2 {
+#card-success h2,
+#card-success a {
   color: #34495e;
 }
 

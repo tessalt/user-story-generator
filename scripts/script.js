@@ -13,7 +13,8 @@
     trelloButton: document.getElementById('trello-launch'),
     trelloContainer: document.getElementById('trello'),
     closeTrello: document.getElementById('close-trello'),
-    back: document.getElementById('back')
+    back: document.getElementById('back'),
+    tweet: document.getElementById('tweet-button')
   };
 
   var templates = {
@@ -137,6 +138,13 @@
     templates.boards.classList.remove('hidden');
   }
 
+  function tweet(e) {
+    var url = e.target.getAttribute('href');
+    var story = userStory.replace(/(<([^>]+)>)/ig,"");
+    story = encodeURIComponent(story);
+    e.target.setAttribute('href', url + story);
+  }
+
   ui.usButton.addEventListener('click', generateUserStory, false);
 
   ui.moreButton.addEventListener('click', resetResult, false);
@@ -152,5 +160,7 @@
   ui.closeTrello.addEventListener('click', closeTrello, false);
 
   ui.back.addEventListener('click', goBack, false);
+
+  ui.tweet.addEventListener('click', tweet, false);
 
 })();
