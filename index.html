@@ -1,66 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>User Story Generator</title>
-  <link rel="stylesheet" href="style.css">
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-   <!-- The client library requires jQuery  -->
-  <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-  <script src="https://api.trello.com/1/client.js?key=9b03e285812cce3b81df8ec9dc5cd2a9"></script>
-  <script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
-</head>
-<body>
-
-
-<div class="container">
-
-    <div id="input" class="inner us-generator">
-
-    <form class="us-form">
-      <header>
-        <h1>User Story Generator</h1>
-        <p>by <a href="http://twitter.com/tessthornton">@tessthornton</a></p>
-        <p class="caveat">*As a user of a browser other than Chrome or Safari, you should not expect this to work.</p>
-      </header>
-      <p>
-        <input type="text" placeholder="a noun" id="noun" autocapitalize="off">
-      </p>
-      <p>
-        <input type="text" id="action" placeholder="an action" autocapitalize="off">
-      </p>
-      <button id="submit">Use Me</button>
-    </form>
-
-  </div>
-
-  <div id="output" class="us-output">
-
-    <div class="inner">
-      <h2 id="userstory"></h2>
-      <button id="more">Expand scope!</button>
-      <button id="trello-launch">Add to Trello</button>
-      <a id="tweet-button" href="https://twitter.com/intent/tweet?url=http%3A%2F%2Ftessalt.github.io%2Fuser-story-generator%2F&text=" class="button">Tweet</a>
+<!doctype html>
+<html ng-app="generator">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.11/angular.min.js"></script>
+  </head>
+  <body>
+    <div ng-controller="GeneratorController as generator">
+      <input type="text" value="{{generator.inputs.name}}">
+      <h1>{{generator.inputs.name}}</h1>
     </div>
-  </div>
-
-  <div id="trello" class="us-trello">
-    <div class="inner">
-      <h2>Select A board</h2>
-      <a id="close-trello" href="#">Close</a>
-      <a id="back" href="#">Back</a>
-      <ul id="trello-boards" class="template">
-
-      </ul>
-      <ul id="trello-lists"></ul>
-      <div id="card-success">
-        <h2>Card created successfully</h2>
-      </div>
-    </div>
-  </div>
-
-</div>
-
-<script src="scripts/script.js"></script>
-</body>
+  </body>
 </html>
