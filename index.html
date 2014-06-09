@@ -1,12 +1,73 @@
-<!doctype html>
-<html ng-app="generator">
+<!DOCTYPE html>
+<html>
   <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.11/angular.min.js"></script>
+    <title>Hello React</title>
+    <script src="http://fb.me/react-0.10.0.js"></script>
+    <script src="http://fb.me/JSXTransformer-0.10.0.js"></script>
+    <script src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
   </head>
   <body>
-    <div ng-controller="GeneratorController as generator">
-      <input type="text" value="{{generator.inputs.name}}">
-      <h1>{{generator.inputs.name}}</h1>
-    </div>
+    <div id="content"></div>
+    <script type="text/jsx">
+      /**
+       * @jsx React.DOM
+       */
+
+      var StoryGeneratorForm = React.createClass({
+        handleSubmit: function(e) {
+          e.preventDefault();
+          var noun = this.refs.noun.getDOMNode().value.trim();
+          var action = this.refs.action.getDOMNode().value.trim();
+          this.props.onStorySubmit({noun: noun, action: action});
+          return false;
+        },
+        render: function() {
+          return (
+            <form classNam="storyForm" onSubmit={this.handleSubmit}>
+              <input type="text" placeholder="A noun" ref="noun" />
+              <input type="text" placeholder="An action" ref="action" />
+              <input type="submit" value="Create" />
+            </form>
+          )
+        }
+      });
+
+      var Story = React.createClass({
+        render: function() {
+          return (
+            <div className="userStory">
+              <p>As a {this.props.noun}, I want to {this.props.action}, <br/>
+                so that I can {this.props.action}, <br/>
+                because Id like to {this.props.action}
+              </p>
+            </div>
+          )
+        }
+      });
+
+      var StoryGenerator = React.createClass({
+        getInitialState: function() {
+          return {story: {}};
+        },
+        handleStorySubmit: function(story) {
+          this.setState({ noun: story.noun, action: story.action });
+          return false;
+        },
+        render: function() {
+          return (
+            <div>
+              <StoryGeneratorForm onStorySubmit={this.handleStorySubmit} />
+              <Story noun={this.state.noun} action={this.state.action} />
+            </div>
+          )
+        }
+      });
+
+      React.renderComponent(
+        <StoryGenerator />,
+        document.getElementById('content')
+      );
+
+    </script>
   </body>
 </html>
